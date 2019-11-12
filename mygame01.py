@@ -43,14 +43,14 @@ rooms = {
                   'west' : 'Hall',
                   'east' : 'Garage',
                   'south' : 'Garden',
-                  'item' : 'potion'
+                  'item' : 'gas'
              },
             'Garden' : {
                   'north' : 'Dining Room'
                   },
             'Garage' : {
                   'west' : 'Dining Room',
-                  'item' : 'defender 110'
+                  'item' : 'defender'
                   }
           }
 
@@ -105,11 +105,14 @@ while True:
     break
 
 ## Define how a player can win
-  if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory and 'defender' in inventory:
-    print('You escaped the house with the ultra rare key, magic potion and a new Defender 110... YOU WIN!')
-    break
-  
-##Define how a player can win
-  if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
-    print('You missed something really nice =[ ')
-    break
+  if currentRoom == 'Garden':
+      if 'key' in inventory and 'potion' in inventory and 'defender' in inventory:
+          print('You escaped the house with the  key, gas and a new Defender 110... YOU WIN!')
+          break
+      else:
+          if 'key' not in inventory:
+              print("You forgot the key")
+          if 'gas' not in inventory:
+              print("You forgot the potion")
+          if "defender" not in inventory:
+              print("You forgot the defender")
